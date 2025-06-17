@@ -85,7 +85,7 @@ const Dashboard = () => {
     if (!aiQuery.trim()) return;
     setIsLoading(true);
     try {
-      const res = await axios.post('https://insightpilot-api.onrender.com/insight/ask', { query: aiQuery }, { headers: getAuthHeader() });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/ask', { query: aiQuery }, { headers: getAuthHeader() });
       setAiChat([...aiChat, { user: aiQuery, ai: { text: res.data.answer } }]);
       setAiQuery('');
       setShowSuggestions(false);
@@ -105,7 +105,7 @@ const Dashboard = () => {
     setIsLoading(true);
     setDatasetAiResponse('');
     try {
-      const res = await axios.post('https://insightpilot-api.onrender.com/insight/dataset', { query: aiQuery }, { headers: getAuthHeader() });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/dataset', { query: aiQuery }, { headers: getAuthHeader() });
       setDatasetAiResponse(res.data.answer);
     } catch (err) {
       setDatasetAiResponse('AI error.');
@@ -123,7 +123,7 @@ const Dashboard = () => {
     setIsLoading(true);
     setVisualReportsAiResponse('');
     try {
-      const res = await axios.post('https://insightpilot-api.onrender.com/insight/ask', { query: aiQuery }, { headers: getAuthHeader() });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/ask', { query: aiQuery }, { headers: getAuthHeader() });
       setVisualReportsAiResponse(res.data.answer);
     } catch (err) {
       setVisualReportsAiResponse('AI error.');
@@ -139,7 +139,7 @@ const Dashboard = () => {
     setIsLoading(true);
     setMarketOutlookResponse('');
     try {
-      const res = await axios.post('http://localhost:5000/api/insight/ask', { query: aiQuery }, { headers: getAuthHeader() });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/ask', { query: aiQuery }, { headers: getAuthHeader() });
       setMarketOutlookResponse(res.data.answer);
     } catch (err) {
       setMarketOutlookResponse('AI error.');
@@ -176,7 +176,7 @@ const Dashboard = () => {
     try {
       const formData = new FormData();
       formData.append('file', datasetFile);
-      const res = await axios.post('https://insightpilot-api.onrender.com/insight/dataset-upload', formData, {
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/dataset-upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data', ...getAuthHeader() },
       });
       setUploadedFileInfo(res.data.file);
@@ -241,7 +241,7 @@ const Dashboard = () => {
     setIsLoading(true);
     setDecisionSummary('');
     try {
-      const res = await axios.post('https://insightpilot-api.onrender.com/insight/decision', { query: decisionInput }, { headers: getAuthHeader() });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/decision', { query: decisionInput }, { headers: getAuthHeader() });
       setDecisionSummary(res.data.answer);
     } catch (err) {
       setDecisionSummary('AI error.');

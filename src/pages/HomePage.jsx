@@ -29,7 +29,7 @@ const HomePage = () => {
     setAiResponse(''); // Clear previous response
 
     try {
-      const res = await axios.post('https://insightpilot-api.onrender.com/insight/ask', { query: userQuery });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/insight/ask', { query: userQuery });
       setAiResponse(res.data.answer);
     } catch (error) {
       setAiResponse('An error occurred while fetching insights. Please try again later.');
