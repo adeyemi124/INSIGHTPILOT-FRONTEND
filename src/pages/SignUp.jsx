@@ -44,7 +44,7 @@ const SignUp = () => {
     }
     setIsLoading(true);
     try {
-      await axios.post('/api/auth/signup', {
+      await axios.post('https://insightpilot-api.onrender.com/api/auth/signup', {
         name: form.fullName,
         email: form.email,
         password: form.password

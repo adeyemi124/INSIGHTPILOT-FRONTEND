@@ -19,12 +19,14 @@ const SignIn = () => {
         navigate('/');
     };
 
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signin', { email, password });
+      const res = await axios.post('https://insightpilot-api.onrender.com/api/auth/signin', { email, password });
       localStorage.setItem('token', res.data.token);
       // Optionally store user info
       setError('');

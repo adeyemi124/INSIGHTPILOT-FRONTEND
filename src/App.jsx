@@ -8,6 +8,9 @@ import Pricing from './pages/Pricing';
 import AboutUs from './pages/AboutUs';
 import Dashboard from './pages/Dashboard';
 
+
+
+
 // Protected Route component
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -16,6 +19,9 @@ const ProtectedRoute = ({ children }) => {
   }
   return children;
 };
+
+
+
 
 const App = () => {
   return (
